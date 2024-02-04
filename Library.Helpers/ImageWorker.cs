@@ -47,13 +47,10 @@ public static class ImageWorker
                         image.Save(ms, new WebpEncoder());
                         var bytesOut = ms.ToArray();
                         File.WriteAllBytes(outPath, bytesOut);
-                        return fileName;
                     }
+                    return fileName;
                 }
-                else
-                {
-                    Console.WriteLine("Запит по фото пройшов із проблемой {0}", response.StatusCode);
-                }
+                Console.WriteLine("Запит по фото пройшов із проблемой {0}", response.StatusCode);
             }
             catch (Exception ex)
             {
