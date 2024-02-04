@@ -12,4 +12,6 @@ public class CategoryEntity
     public string Name { get; set; }
     [Required]
     public DateTime DateCreated { get; set; }
+
+    public ICollection<BookEntity> Books { get; set; }
 }

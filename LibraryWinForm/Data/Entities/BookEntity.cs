@@ -20,5 +20,7 @@ public class BookEntity
     [Required]
     public int Count { get; set; }
     
+    [ForeignKey("CategoryEntity")]
+    public int CategoryId { get; set; }
     public CategoryEntity CategoryEntity { get; set; }
 }

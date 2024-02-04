@@ -4,6 +4,7 @@ using LibraryWinForm.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryWinForm.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20240204075314_AddStringLengthsBookEntity")]
+    partial class AddStringLengthsBookEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,7 +38,7 @@ namespace LibraryWinForm.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("CategoryEntityCategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("Count")
@@ -56,7 +59,7 @@ namespace LibraryWinForm.Migrations
 
                     b.HasKey("BookId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CategoryEntityCategoryId");
 
                     b.ToTable("tblBooks");
                 });
@@ -126,17 +129,12 @@ namespace LibraryWinForm.Migrations
             modelBuilder.Entity("LibraryWinForm.Data.Entities.BookEntity", b =>
                 {
                     b.HasOne("LibraryWinForm.Data.Entities.CategoryEntity", "CategoryEntity")
-                        .WithMany("Books")
-                        .HasForeignKey("CategoryId")
+                        .WithMany()
+                        .HasForeignKey("CategoryEntityCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("CategoryEntity");
-                });
-
-            modelBuilder.Entity("LibraryWinForm.Data.Entities.CategoryEntity", b =>
-                {
-                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,6 +4,7 @@ using LibraryWinForm.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryWinForm.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20240204080030_ChangeOneToManyConvention")]
+    partial class ChangeOneToManyConvention
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,6 +37,9 @@ namespace LibraryWinForm.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("CategoryEntityCategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -56,7 +62,7 @@ namespace LibraryWinForm.Migrations
 
                     b.HasKey("BookId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CategoryEntityCategoryId");
 
                     b.ToTable("tblBooks");
                 });
@@ -127,7 +133,7 @@ namespace LibraryWinForm.Migrations
                 {
                     b.HasOne("LibraryWinForm.Data.Entities.CategoryEntity", "CategoryEntity")
                         .WithMany("Books")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("CategoryEntityCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
