@@ -9,11 +9,11 @@ public class BookEntity
 {
     [Key]
     public int BookId { get; set; }
-    [Required]
+    [Required, StringLength(200)]
     public string Name { get; set; }
-    [Required]
+    [Required, StringLength(4000)]
     public string Description { get; set; }
-    [Required]
+    [Required, StringLength(200)]
     public string AuthorName { get; set; }
     [Required]
     public int Pages { get; set; }
