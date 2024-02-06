@@ -15,26 +15,26 @@ public static class ImageWorker
         /// <returns>Повертаємо назву фото</returns>
         public static string? ImageSave(string url, string folderName, string? imageName = null)
         {
-            try
+            try // ловимо помилки
             {
-                using HttpClient client = new HttpClient();
-                var response = client.GetAsync(url).Result;
-                if (response.IsSuccessStatusCode)
+                using HttpClient client = new HttpClient(); // HTTP клієнт для скачування фото
+                var response = client.GetAsync(url).Result; // скачуємо фото
+                if (response.IsSuccessStatusCode) // якщо все добре
                 {
                     //список байт фото
-                    byte[] imageBytes = response.Content.ReadAsByteArrayAsync().Result;
+                    byte[] imageBytes = response.Content.ReadAsByteArrayAsync().Result; 
                     int []sizes = [50,150,300,600,1200]; //розмір фото, яке буде зберігатися
-                    //Рандомна величина, яка не може повторится при генерації
+                    //Рандомна навза, яка не може повторится при генерації
                     string fileName = imageName ?? Guid.NewGuid() + ".webp";
-                    var dir = Path.Combine(Directory.GetCurrentDirectory(), "images", folderName);
-                    if (!Directory.Exists(dir))
+                    var dir = Path.Combine(Directory.GetCurrentDirectory(), "images", folderName); // шлях папки
+                    if (!Directory.Exists(dir)) // якщо папка не існує
                     {
-                        Directory.CreateDirectory(dir);
+                        Directory.CreateDirectory(dir); // створюємо її
                     }
-                    foreach (var size in sizes)
+                    foreach (var size in sizes) // для кожного розміру робимо
                     {
-                        var outPath = Path.Combine(dir, size+"_"+fileName);
-                        using var image = Image.Load(imageBytes);
+                        var outPath = Path.Combine(dir, size+"_"+fileName); // шлях і назва файла
+                        using var image = Image.Load(imageBytes); // завантажуємо дані фото в буфер
                         image.Mutate(x =>
                         {
                             x.Resize(new ResizeOptions
@@ -42,20 +42,21 @@ public static class ImageWorker
                                 Size = new Size(size, size),
                                 Mode = ResizeMode.Max
                             });
-                        });
+                        }); // змінюємо розмір
                         using var ms = new MemoryStream();
                         image.Save(ms, new WebpEncoder());
                         var bytesOut = ms.ToArray();
-                        File.WriteAllBytes(outPath, bytesOut);
+                        File.WriteAllBytes(outPath, bytesOut); // зберігаємо
                     }
-                    return fileName;
+                    return fileName; // повертаємо базову назву фото
                 }
+                // якщо не вийшло скачати фото
                 Console.WriteLine("Запит по фото пройшов із проблемой {0}", response.StatusCode);
             }
-            catch (Exception ex)
+            catch (Exception ex) // ловимо всі виключення
             {
                 Console.WriteLine("Помилка збереження фото {0}", ex.Message);
             }
-            return null;
+            return null; // якщо все погано, повертаємо null
         }
     }
