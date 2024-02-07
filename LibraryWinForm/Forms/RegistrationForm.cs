@@ -29,6 +29,13 @@ public partial class RegistrationForm : Form
         }
         using LibraryContext context = new ();
 
+        var usersWithEmail = context.Users.Where(u => u.Email == txtEmail.Text).ToList();
+        if (usersWithEmail.Count > 0)
+        {
+            MessageBox.Show("Користувач з таким email вже існує", "Увага");
+            return;
+        }
+        
         var userTypes = context.UserTypes.Where(ut => ut.Name == "User").ToList();
         if (userTypes.Count == 0)
         {
