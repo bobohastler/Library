@@ -15,6 +15,7 @@ namespace LibraryWinForm
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
             // Application.Run(new RegistrationForm());
+            // Application.Run(new LoginForm());
         }
     }
 }
