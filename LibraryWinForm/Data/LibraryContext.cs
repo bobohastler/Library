@@ -10,6 +10,7 @@ public class LibraryContext : DbContext
     public DbSet<UserEntity> Users { get; set; }
     public DbSet<CategoryEntity> Categories { get; set; }
     public DbSet<BookEntity> Books { get; set; }
+    public DbSet<UserTypeEntity> UserTypes { get; set; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

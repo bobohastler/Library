@@ -18,6 +18,10 @@ public class UserEntity
     public string Password { get; set; }
     [Required, StringLength(20)]
     public string Phone { get; set; }
+    [ForeignKey("UserTypeEntity")]
+    public int UserTypeId { get; set; }
+    [Required]
+    public UserTypeEntity UserType { get; set; }
     [Required]
     public DateTime DateCreated { get; set; }
 }
