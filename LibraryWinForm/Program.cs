@@ -1,3 +1,5 @@
+using LibraryWinForm.Forms;
+
 namespace LibraryWinForm
 {
     internal static class Program
@@ -12,6 +14,7 @@ namespace LibraryWinForm
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
+            // Application.Run(new RegistrationForm());
         }
     }
 }

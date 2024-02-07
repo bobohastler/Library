@@ -27,8 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\" />
-    <Folder Include="Helpers\" />
+    <Compile Update="Forms\RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
