@@ -18,6 +18,8 @@ public class BookEntity
     [Required]
     public int Pages { get; set; }
     [Required]
+    public string PDFFile { get; set; }
+    [Required]
     public int Count { get; set; }
     
     [ForeignKey("CategoryEntity")]
