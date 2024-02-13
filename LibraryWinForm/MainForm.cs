@@ -19,7 +19,7 @@ namespace LibraryWinForm
                 });
             }
         
-            var userType = context.UserTypes.First(ut => ut.Name == "User");
+            var userType = context.UserTypes.SingleOrDefault(ut => ut.Name == "User");
             
             UserEntity kot = new UserEntity
             {

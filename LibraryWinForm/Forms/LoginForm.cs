@@ -25,7 +25,7 @@ public partial class LoginForm : Form
             return;
         }
 
-        var user = usersWithEmail.First();
+        var user = usersWithEmail.SingleOrDefault();
         if (user.Password != txtPassword.Text)
         {
             MessageBox.Show("Пароль неправильний", "Увага");

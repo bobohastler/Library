@@ -45,7 +45,7 @@ public partial class RegistrationForm : Form
             });
         }
         
-        var userType = context.UserTypes.First(ut => ut.Name == "User");
+        var userType = context.UserTypes.SingleOrDefault(ut => ut.Name == "User");
 
         var user = new UserEntity
         {
