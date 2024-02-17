@@ -40,22 +40,26 @@
             // 
             // button1
             // 
-            button1.Location = new Point(710, 114);
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.ForeColor = SystemColors.ButtonFace;
+            button1.Location = new Point(731, 126);
             button1.Name = "button1";
             button1.Size = new Size(187, 54);
             button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "Добавити товар";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(723, 372);
+            button2.BackColor = SystemColors.ActiveCaption;
+            button2.ForeColor = Color.Snow;
+            button2.Location = new Point(707, 339);
             button2.Name = "button2";
-            button2.Size = new Size(187, 50);
+            button2.Size = new Size(232, 104);
             button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            button2.Text = "Підтвердити замовлення";
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // textBox1
@@ -64,6 +68,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(296, 27);
             textBox1.TabIndex = 2;
+            textBox1.Text = "Назва товару...";
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
@@ -72,12 +77,13 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(296, 27);
             textBox2.TabIndex = 3;
+            textBox2.Text = "Ціна товару...";
             textBox2.TextChanged += textBox2_TextChanged;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(103, 325);
+            dataGridView1.Location = new Point(103, 242);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(300, 188);
@@ -86,7 +92,8 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(437, 129);
+            numericUpDown1.BackColor = SystemColors.ButtonFace;
+            numericUpDown1.Location = new Point(470, 141);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 27);
             numericUpDown1.TabIndex = 5;

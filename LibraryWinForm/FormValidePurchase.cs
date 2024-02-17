@@ -18,6 +18,7 @@ namespace LibraryWinForm
         {
             InitializeComponent();
             cartProducts = new List<Product>();
+            this.BackColor = Color.LightBlue; 
         }
 
 
