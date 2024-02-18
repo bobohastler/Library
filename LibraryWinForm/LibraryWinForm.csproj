@@ -39,6 +39,24 @@
     <Compile Update="Forms\ItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\UserProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ChangeProfileSettingsForms\ChangeFirstNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ChangeProfileSettingsForms\ChangeLastNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ChangeProfileSettingsForms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ChangeProfileSettingsForms\ChangePhoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ChangeProfileSettingsForms\ChangeUserFieldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
