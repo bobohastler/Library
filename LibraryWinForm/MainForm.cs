@@ -1,10 +1,13 @@
 using LibraryWinForm.Data;
 using LibraryWinForm.Data.Entities;
+using LibraryWinForm.Forms;
 
 namespace LibraryWinForm
 {
     public partial class MainForm : Form
     {
+        public UserEntity? user;
+        
         public MainForm()
         {
             InitializeComponent();
@@ -31,8 +34,27 @@ namespace LibraryWinForm
                 Phone = "+380 97 638 87 34",
                 UserTypeEntity = userType,
             };
-            context.Users.Add(kot);
+
+            var kots = context.Users.Where(u => u.Email == kot.Email).ToList();
+            if (kots.Count == 0)
+            {
+                context.Users.Add(kot);
+            }
+            
             context.SaveChanges();
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            UserProfileForm userProfileForm = new() { user = user };
+            userProfileForm.ShowDialog();
+            user = userProfileForm.user;
+        }
+
+        private void btnOpenBook_Click(object sender, EventArgs e)
+        {
+            ItemForm bookForm = new();
+            bookForm.Show();
         }
     }
 }
