@@ -40,6 +40,7 @@ partial class ItemForm
         lblBookAvailableNumber = new Label();
         lblBookCategory1 = new Label();
         lblBookCategory2 = new Label();
+        lblMissingBooksWarning = new Label();
         pdfViewer = new PdfViewer();
         
         lblBookName.AutoSize = true;
@@ -87,22 +88,29 @@ partial class ItemForm
         
         lblBookAvailableNumber.AutoSize = true;
         lblBookAvailableNumber.Font = FontSettings.Bold;
-        lblBookAvailableNumber.ForeColor = Color.ForestGreen;
+        lblBookAvailableNumber.ForeColor = Color.Crimson;
         lblBookAvailableNumber.Location = new Point(140, 850);
         lblBookAvailableNumber.Name = "lblBookAvailableNumber";
-        lblBookAvailableNumber.Text = "Так";
+        lblBookAvailableNumber.Text = "Ні";
         
         lblBookIsAvailable.AutoSize = true;
         lblBookIsAvailable.Font = FontSettings.Regular;
         lblBookIsAvailable.ForeColor = Color.DarkBlue;
         lblBookIsAvailable.Location = new Point(175, 850);
         lblBookIsAvailable.Name = "lblBookIsAvailable";
-        lblBookIsAvailable.Text = "(2 шт.)";
+        lblBookIsAvailable.Text = "";
 
+        lblMissingBooksWarning.AutoSize = true;
+        lblMissingBooksWarning.Font = FontSettings.Italic;
+        lblMissingBooksWarning.ForeColor = Color.Crimson;
+        lblMissingBooksWarning.Location = new Point(600, 40);
+        lblMissingBooksWarning.Name = "lblMissingBooksWarning";
+        lblMissingBooksWarning.Text = "Перегляд книг недоступний (немає книг у базі даних)";
 
         pdfViewer.Location = new Point(600, 40);
         pdfViewer.Name = "pdfViewer";
-        pdfViewer.MinimumSize = pdfViewer.Size = pdfViewer.ClientSize = pdfViewer.MaximumSize = new Size(850, 800);
+        pdfViewer.MinimumSize = pdfViewer.Size = pdfViewer.ClientSize = pdfViewer.MaximumSize = 
+            new Size(850, 800);
         
         
         components = new System.ComponentModel.Container();
@@ -115,6 +123,7 @@ partial class ItemForm
         Controls.Add(lblBookAvailableNumber);
         Controls.Add(lblBookCategory1);
         Controls.Add(lblBookCategory2);
+        Controls.Add(lblMissingBooksWarning);
         Controls.Add(pdfViewer);
         Load += ItemForm_Load;
         MinimumSize = ClientSize = MaximumSize = new System.Drawing.Size(1400, 950);
@@ -132,6 +141,6 @@ partial class ItemForm
     private Label lblBookIsAvailable;
     private Label lblBookCategory1;
     private Label lblBookCategory2;
+    private Label lblMissingBooksWarning;
     private PdfViewer pdfViewer;
-    // private Button S
 }

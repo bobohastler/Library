@@ -17,10 +17,10 @@ public partial class ItemForm : Form
 
     private void ItemForm_Load(object sender, EventArgs e)
     {
-        LibraryContext libraryContext = new();
-        book = libraryContext.Books.SingleOrDefault(b => b.BookId == BookId);
+        // LibraryContext libraryContext = new();
+        // book = libraryContext.Books.SingleOrDefault(b => b.BookId == BookId);
         // Поки не працює, бо в базі даних нема книг
-        LoadPdf(File.ReadAllBytes(book.PDFFile));
+        // LoadPdf(File.ReadAllBytes(book.PDFFile));
     }
     
     private void LoadPdf(byte[] pdfBytes)
