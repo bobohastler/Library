@@ -5,7 +5,7 @@ namespace LibraryWinForm.Forms;
 
 public partial class LoginForm : Form
 {
-    public UserEntity LoggedUser { set; get; }
+    public UserEntity? LoggedUser { private set; get; }
     
     public LoginForm()
     {
@@ -33,5 +33,6 @@ public partial class LoginForm : Form
         }
         LoggedUser = user;
         MessageBox.Show($"Ви увійшли як {user.FirstName} {user.LastName}", "Успіх");
+        Close();
     }
 }

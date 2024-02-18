@@ -70,7 +70,7 @@ public partial class RegistrationForm : Form
         txtPhone.Text = "";
         txtPassword.Text = "";
         txtPasswordRepeat.Text = "";
-
+        Close();
     }
 
     private void btnShowPassword_MouseDown(object sender, EventArgs e)
