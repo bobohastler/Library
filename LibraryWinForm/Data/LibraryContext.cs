@@ -8,7 +8,11 @@ namespace LibraryWinForm.Data;
 public class LibraryContext : DbContext
 {
     public DbSet<UserEntity> Users { get; set; }
-    
+    public DbSet<CategoryEntity> Categories { get; set; }
+    public DbSet<BookEntity> Books { get; set; }
+    public DbSet<UserTypeEntity> UserTypes { get; set; }
+    public DbSet<OrderedBooksEntity> OrderedBooks { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var builder = new ConfigurationBuilder()
@@ -17,7 +21,7 @@ public class LibraryContext : DbContext
 
         IConfiguration configuration = builder.Build();
 
-        string conStr = configuration.GetConnectionString("MSSQLServerConnection");
+        string? conStr = configuration.GetConnectionString("MSSQLServerConnection");
         
         optionsBuilder.UseSqlServer(conStr);
     }

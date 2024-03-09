@@ -7,7 +7,7 @@ namespace LibraryWinForm.Data.Entities;
 public class UserEntity
 {
     [Key]
-    public int Id { get; set; }
+    public int UserId { get; set; }
     [Required, StringLength(200)]
     public string FirstName { get; set; }
     [Required, StringLength(200)]
@@ -20,4 +20,7 @@ public class UserEntity
     public string Phone { get; set; }
     [Required]
     public DateTime DateCreated { get; set; }
+    [ForeignKey("UserTypeEntity")]
+    public int UserTypeId { get; set; }
+    public UserTypeEntity UserTypeEntity { get; set; }
 }

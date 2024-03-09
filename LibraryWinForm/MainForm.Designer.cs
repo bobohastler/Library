@@ -1,4 +1,6 @@
-﻿namespace LibraryWinForm
+﻿using LibraryWinForm.Forms;
+
+namespace LibraryWinForm
 {
     partial class MainForm
     {
@@ -28,12 +30,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnUser = new Button();
+            btnLogin = new Button();
+            SuspendLayout();
+            // 
+            // btnUser
+            // 
+            btnUser.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            btnUser.ForeColor = Color.Sienna;
+            btnUser.Location = new Point(253, 224);
+            btnUser.Name = "btnUser";
+            btnUser.Size = new Size(284, 50);
+            btnUser.TabIndex = 3;
+            btnUser.Text = "Зареєструватись";
+            btnUser.Click += btnUser_Click;
+            // 
+            // btnLogin
+            // 
+            btnLogin.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            btnLogin.ForeColor = Color.DarkBlue;
+            btnLogin.Location = new Point(253, 137);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(284, 50);
+            btnLogin.TabIndex = 2;
+            btnLogin.Text = "Увійти";
+            btnLogin.Click += btnOpenBook_Click;
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnUser);
+            Controls.Add(btnLogin);
+            Name = "MainForm";
+            Text = "Бібліотека";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnUser;
+        private Button btnLogin;
     }
 }
